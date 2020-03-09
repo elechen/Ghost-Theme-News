@@ -1,0 +1,23 @@
+<a class="post-card-content-link" href="{{url}}">
+
+    <article class="cell">
+
+        <div class="cell_left {{#unless feature_image}}no-image{{/unless}}">
+            <div class="middle">
+                <div class="title">{{title}}</div>
+                <div class="author">
+                    {{#primary_author}}
+                    <span>{{name}}</span>
+                    {{/primary_author}}
+                    <span class="date">{{date timeago="true"}}</span>
+                </div>
+            </div>
+
+        </div>
+        {{#if feature_image}}
+        <img class="pic-cover" src="{{img_url feature_image size="m"}}" />
+        {{/if}}
+
+    </article>
+
+</a>
