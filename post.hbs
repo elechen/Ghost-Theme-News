@@ -137,7 +137,7 @@ into the {body} of the default.hbs template --}}
     console.log('onShare->', location.href)
     var bInGame = typeof shareFunc !== "undefined"
     if (bInGame) {
-      var linkno = storage.getItem('linkno')
+      var linkno = localStorage.getItem('linkno')
       var shareLink = location.href
       if(linkno){
         shareLink = shareLink + '?linkno=' + linkno
