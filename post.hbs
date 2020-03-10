@@ -118,7 +118,7 @@ into the {body} of the default.hbs template --}}
             --}}
 
       <div class="fixed-comment-bottom-bar">
-        <div class="comment-out-box show">
+        <div class="comment-out-box">
           <a onclick="onShare()">分享赚钱<span class="arrow"></span></a>
         </div>
       </div>
@@ -138,10 +138,15 @@ into the {body} of the default.hbs template --}}
     if (typeof shareFunc !== "undefined") {
       shareFunc('方向标题', location.href)
     } else {
-      alert('尚未接入分享接口')
+      alert('oops~暂不支持分享哦')
     }
   }
   $(document).ready(function () {
+
+    if(typeof shareFunc !== "undefined"){
+      $('.comment-out-box').addClass('show')
+    }
+
     // FitVids - start
     var $postContent = $(".post-full-content");
     $postContent.fitVids();
