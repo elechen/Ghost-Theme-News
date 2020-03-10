@@ -135,15 +135,22 @@ into the {body} of the default.hbs template --}}
 <script>
   function onShare() {
     console.log('onShare->', location.href)
-    if (typeof shareFunc !== "undefined") {
-      shareFunc('方向标题', location.href)
+    var bInGame = typeof shareFunc !== "undefined"
+    if (bInGame) {
+      var linkno = storage.getItem('linkno')
+      var shareLink = location.href
+      if(linkno){
+        shareLink = shareLink + '?linkno=' + linkno
+      }
+      shareFunc('游戏推广分享', shareLink)
     } else {
       alert('oops~暂不支持分享哦')
     }
   }
   $(document).ready(function () {
 
-    if(typeof shareFunc !== "undefined"){
+    var bInGame = typeof shareFunc !== "undefined"
+    if(bInGame){
       $('.comment-out-box').addClass('show')
     }
 
