@@ -118,7 +118,7 @@ into the {body} of the default.hbs template --}}
             --}}
 
       <div class="fixed-comment-bottom-bar">
-        <div class="comment-out-box">
+        <div class="comment-out-box show">
           <a onclick="onShare()">分享赚钱<span class="arrow"></span></a>
         </div>
       </div>
@@ -135,25 +135,19 @@ into the {body} of the default.hbs template --}}
 <script>
   function onShare() {
     console.log('onShare->', location.href)
-    var bInGame = typeof shareFunc !== "undefined"
+    var bInGame = (typeof shareFunc !== "undefined")
     if (bInGame) {
       var linkno = localStorage.getItem('linkno')
       var shareLink = location.href
       if(linkno){
         shareLink = shareLink + '?linkno=' + linkno
       }
-      shareFunc('游戏推广分享', shareLink)
+      shareFunc('', shareLink)
     } else {
-      alert('oops~暂不支持分享哦')
+      alert('oops~游戏内才支持分享哦')
     }
   }
   $(document).ready(function () {
-
-    var bInGame = typeof shareFunc !== "undefined"
-    if(bInGame){
-      $('.comment-out-box').addClass('show')
-    }
-
     // FitVids - start
     var $postContent = $(".post-full-content");
     $postContent.fitVids();
